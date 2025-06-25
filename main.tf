@@ -1,7 +1,7 @@
 resource "aws_vpc_peering_connection" "connection" {
   auto_accept   = false
   peer_owner_id = data.aws_caller_identity.accepter.account_id
-  peer_region   = data.aws_region.accepter.name
+  peer_region   = data.aws_region.accepter.region
   peer_vpc_id   = data.aws_vpc.accepter.id
   provider      = aws.requester
   tags          = var.requester_tags
